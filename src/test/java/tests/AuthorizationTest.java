@@ -11,7 +11,6 @@ public class AuthorizationTest extends SettingsForDriver {
 
     @Test
     public void authClient() {
-        driver.get("https://test.uxcrowd.ru/");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         authorizationPage.authClient(EMAIL, PASSWORD);
         boolean elementAfterAuth = authorizationPage.isElementAfterAuth();

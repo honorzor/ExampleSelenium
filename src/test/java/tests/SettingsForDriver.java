@@ -7,12 +7,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import pages.AuthorizationPage;
+import pages.MainPage;
 
 public class SettingsForDriver {
 
     public WebDriver driver;
     public WebDriverWait webDriverWait;
     public AuthorizationPage authorizationPage;
+    public MainPage mainPage;
+    private static final String BASEURL = "http://test.uxcrowd.ru";
 
     @BeforeClass
     public void signUp() {
@@ -20,7 +23,9 @@ public class SettingsForDriver {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         webDriverWait = new WebDriverWait(driver, 10);
-        authorizationPage = PageFactory.initElements(driver,AuthorizationPage.class);
+        authorizationPage = PageFactory.initElements(driver, AuthorizationPage.class);
+        mainPage = PageFactory.initElements(driver, MainPage.class);
+        driver.get(BASEURL);
     }
 
     @AfterClass

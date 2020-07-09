@@ -7,14 +7,14 @@ import org.openqa.selenium.support.FindBy;
 
 public class AuthorizationPage {
 
-    @FindBy(id = "header-lk-button")
+    @FindBy(css = "#header-lk-button")
     private WebElement loginButton; // Кнопка открытия окошка "Вход/Регистрация"
 
     @FindBy(css = "#login")
-    private WebElement loginFiled; // Поле ввода почты
+    private WebElement loginFiled; // Поле для ввода почты
 
     @FindBy(css = "[type=password]")
-    private WebElement passwordField; // Поле ввода пароля
+    private WebElement passwordField; // Поле для ввода пароля
 
     @FindBy(css = "#form_auth button")
     private WebElement submitButton; // Кнопка "Вход"
