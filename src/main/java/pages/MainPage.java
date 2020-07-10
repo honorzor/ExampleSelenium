@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 public class MainPage {
 
     @FindBy(css = "#header-lk-button")
-    private WebElement loginButton; //
+    private WebElement loginButton;
 
     @FindBy(css = ".nl-header-link[ng-tr=\"NLHEA.NLHEA1\"]")
     private WebElement productButton;

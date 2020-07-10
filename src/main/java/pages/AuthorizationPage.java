@@ -7,52 +7,51 @@ import org.openqa.selenium.support.FindBy;
 
 public class AuthorizationPage {
 
-    @FindBy(css = "#header-lk-button")
-    private WebElement loginButton; // Кнопка открытия окошка "Вход/Регистрация"
+    @FindBy(xpath = "//*[@id=\"header-lk-button\"]")
+    private WebElement openWindowAuth; // Кнопка открытия окошка "Вход/Регистрация"
 
-    @FindBy(css = "#login")
-    private WebElement loginFiled; // Поле для ввода почты
+    @FindBy(xpath = "//*[@id=\"login\"]")
+    private WebElement fieldEmail; // Поле для ввода почты клиента.
 
-    @FindBy(css = "[type=password]")
-    private WebElement passwordField; // Поле для ввода пароля
+    @FindBy(xpath = "//*[@id=\"form_auth\"]/input[2]")
+    private WebElement fieldPassword; // Поле для ввода пароля клиента.
 
-    @FindBy(css = "#form_auth button")
-    private WebElement submitButton; // Кнопка "Вход"
+    @FindBy(xpath = "//*[@id=\"form_auth\"]/button")
+    private WebElement enterButton; // Кнопка "Войти" в профиль клиента.
 
-    @FindBy(xpath = "//*[@id=\"top\"]/div[2]/div/div[2]/div[1]/div[1]/span")
-    private WebElement buttonCreateTest; //Элемент , который даёт понять нам что мы перешли на страницу профиля
+    @FindBy(xpath = "//*[@id=\"logout\"]")
+    private WebElement logoutButton; // Кнопка "Выйти" в профиль клиента.
 
     @Story(value = "Test with correct credentials")
     public void authClient(String email, String password) {
-        clickLoginButton();
+        openFormAuth();
         fillLoginField(email);
         fillPasswordField(password);
-        clickSubmitButton();
+        clickEnterButton();
     }
 
     @Step(value = "Check locator")
     public boolean isElementAfterAuth() {
-        return buttonCreateTest.isDisplayed();
+        return logoutButton.isDisplayed();
     }
 
     @Step(value = "click button submit")
-    private void clickSubmitButton() {
-        submitButton.click();
+    private void clickEnterButton() {
+        enterButton.click();
     }
 
     @Step(value = "fill password {0}")
-
     private void fillPasswordField(String password) {
-        passwordField.sendKeys(password);
+        fieldPassword.sendKeys(password);
     }
 
     @Step(value = "fill email {0}")
     private void fillLoginField(String email) {
-        loginFiled.sendKeys(email);
+        fieldEmail.sendKeys(email);
     }
 
     @Step(value = "open window for registration or login")
-    private void clickLoginButton() {
-        loginButton.click();
+    private void openFormAuth() {
+        openWindowAuth.click();
     }
 }
