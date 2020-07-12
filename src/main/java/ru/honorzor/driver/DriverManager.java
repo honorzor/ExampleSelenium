@@ -1,4 +1,4 @@
-package driver;
+package ru.honorzor.driver;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;

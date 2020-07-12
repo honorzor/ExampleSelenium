@@ -1,11 +1,11 @@
-package pages;
+package ru.honorzor.pages;
 
-import driver.DriverManager;
 import io.qameta.allure.Step;
 import io.qameta.allure.Story;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import ru.honorzor.driver.DriverManager;
 
 public class AuthorizationPage {
 
@@ -34,6 +34,13 @@ public class AuthorizationPage {
         fillLoginField(email);
         fillPasswordField(password);
         clickEnterButton();
+        logout();
+
+    }
+
+    @Step(value = "logour user")
+    private void logout() {
+        logoutButton.click();
     }
 
     @Step(value = "Check locator")
@@ -61,8 +68,8 @@ public class AuthorizationPage {
         openWindowAuth.click();
     }
 
-    @Step(value = "start driver")
-    public void setUp(String url) {
+    @Step(value = "start ru.honorzor.pages.driver")
+    public void startDriver(String url) {
         DriverManager.getDriver().get(url);
     }
 

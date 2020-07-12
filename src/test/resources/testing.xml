@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="ru.honorzor.tests" verbose="1">
+    <listeners>
+        <listener class-name="ru.honorzor.tests.listener.ScreenShotListener"/>
+    </listeners>
+
+    <test name="ru.honorzor.tests.smoke">
+        <classes>
+            <class name="ru.honorzor.tests.smoke.MainPageTest"/>
+        </classes>
+    </test>
+
+    <test name="ru.honorzor.tests.authorization">
+        <classes>
+            <class name="ru.honorzor.tests.authorization.AuthorizationTest"/>
+        </classes>
+    </test>
+
+</suite>
