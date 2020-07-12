@@ -1,11 +1,17 @@
 package pages;
 
+import driver.DriverManager;
 import io.qameta.allure.Step;
 import io.qameta.allure.Story;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class AuthorizationPage {
+
+    public AuthorizationPage() {
+        PageFactory.initElements(DriverManager.getDriver(), this);
+    }
 
     @FindBy(xpath = "//*[@id=\"header-lk-button\"]")
     private WebElement openWindowAuth; // Кнопка открытия окошка "Вход/Регистрация"
@@ -54,4 +60,10 @@ public class AuthorizationPage {
     private void openFormAuth() {
         openWindowAuth.click();
     }
+
+    @Step(value = "start driver")
+    public void setUp(String url) {
+        DriverManager.getDriver().get(url);
+    }
+
 }

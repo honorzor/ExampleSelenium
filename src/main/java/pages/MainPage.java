@@ -1,10 +1,17 @@
 package pages;
 
+import driver.DriverManager;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class MainPage {
+
+
+    public MainPage() {
+        PageFactory.initElements(DriverManager.getDriver(), this);
+    }
 
     @FindBy(css = "#header-lk-button")
     private WebElement loginButton;
@@ -45,5 +52,10 @@ public class MainPage {
     @Step(value = "check enable product button")
     public boolean isProductButton() {
         return productButton.isEnabled();
+    }
+
+    @Step(value = "start driver")
+    public void setUp(String url) {
+        DriverManager.getDriver().get(url);
     }
 }
