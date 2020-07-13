@@ -17,7 +17,7 @@ public class MainPageTest {
     private static final String REALPRICETEXT = "Тарифы на использование UXCrowd";
     private static final String REALFAQTEXT = "Часто задаваемые вопросы";
     private static final String REALWANTTESTTEXT = "Работа дома — тестирование сайтов";
-    private static final String REALLOGINTEXT = "Вход";
+    private static final String REALLOGINTEXT = "ВХОД";
 
 
     @Test(priority = 1)
@@ -29,28 +29,24 @@ public class MainPageTest {
 
     @Test(priority = 2)
     public void checkPrice() {
-        mainPage.startDriver(BASEURL);
         mainPage.clickPriceButton();
         Assert.assertEquals(mainPage.getActualTextPricePage(), REALPRICETEXT);
     }
 
     @Test(priority = 3)
     public void checkFAQ() {
-        mainPage.startDriver(BASEURL);
         mainPage.clickFaqButton();
         Assert.assertEquals(mainPage.getActualTextFaqPage(), REALFAQTEXT);
     }
 
     @Test(priority = 4)
     public void checkWantTest() {
-        mainPage.startDriver(BASEURL);
-       // mainPage.clickWantTestButton();
+        mainPage.clickWantTestButton();
         Assert.assertEquals(mainPage.getActualTextWantTestPage(), REALWANTTESTTEXT);
     }
 
     @Test(priority = 5)
     public void checkLoginButton() {
-        mainPage.startDriver(BASEURL);
         mainPage.clickLoginButton();
         Assert.assertEquals(mainPage.getActualTextLoginPage(), REALLOGINTEXT);
     }
